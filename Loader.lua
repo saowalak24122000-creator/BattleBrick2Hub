@@ -1,16 +1,8 @@
-local Key = "1"
-if _G.Key ~= Key then
-    game.Players.LocalPlayer:Kick("❌ Wrong Key! Get Key in Discord ✅")
-    return
+local key = "1"
+local inputKey = tostring(game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"):WaitForChild("ScreenGui").TextBox.Text)
+
+if inputKey ~= key then
+    game.Players.LocalPlayer:Kick("❌ Key Invalid")
 end
 
-local url = "https://raw.githubusercontent.com/CGGPMS/BattleBrickHub/main/hub.lua"
-local ok, res = pcall(function()
-    return game:HttpGet(url)
-end)
-
-if ok then
-    loadstring(res)()
-else
-    game.Players.LocalPlayer:Kick("⚠️ Failed to load hub.lua")
-end
+loadstring(game:HttpGet("https://raw.githubusercontent.com/CGGPMS/BattleBrick2Hub/main/Hub.lua"))()
